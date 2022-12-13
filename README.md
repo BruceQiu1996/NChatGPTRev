@@ -1,8 +1,7 @@
 ## ChatGPT C# API
 
-OpenAI ChatGPT 的逆向工程SDK。可扩展用于聊天机器人等。觉得不错请右上角Star
-感谢 revChatGPT.以及ChatGPT Java Api https://github.com/PlexPt/chatgpt-java
-觉得还行，帮忙打个星~
+OpenAI ChatGPT 的逆向工程SDK。可扩展用于聊天机器人等。觉得不错请右上角Star  
+感谢 revChatGPT.以及ChatGPT Java Api https://github.com/PlexPt/chatgpt-java  
 
 ![](https://avatars.githubusercontent.com/u/14957082?s=200&v=4)
 
