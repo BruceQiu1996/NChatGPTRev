@@ -1,5 +1,7 @@
 ﻿using NChatGPTRev.Extensions;
 using NChatGPTRev.Models;
+using System.Net.Http;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -23,9 +25,9 @@ namespace NChatGPTRev
         /// cookie:Session_token
         /// </summary>
         public string Session_token { get; private set; }
-        public string AccessToken 
-        { 
-            get; 
+        public string AccessToken
+        {
+            get;
             private set;
         }
         private readonly JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
@@ -37,7 +39,7 @@ namespace NChatGPTRev
         internal IDictionary<string, string> Cookies { get; set; }
         internal IDictionary<string, string> Proxies { get; set; }
 
-        public OpenAISession(string session_token,string cfClearance,string userAgent)
+        public OpenAISession(string session_token, string cfClearance, string userAgent)
         {
             Session_token = session_token;
             CfClearance = cfClearance;
@@ -138,15 +140,32 @@ namespace NChatGPTRev
             Cookies.Put("__Secure-next-auth.callback-url", "https://chat.openai.com/");
             Cookies.Put("cf_clearance", CfClearance);
             GetCookiesString();
-            using (var client = new HttpClient())
+            HttpClient client = new HttpClient();
+            try
             {
+                client.Timeout = TimeSpan.FromSeconds(300);
                 var content = new StringContent(data);
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, new Uri(url))
+                {
+                    Version = HttpVersion.Version10,
+                    Content = content
+                };
+                client.DefaultRequestHeaders.ConnectionClose = true;
                 foreach (var header in Headers)
                 {
                     client.DefaultRequestHeaders.Add(header.Key, header.Value);
                 }
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                return await client.PostAsync(url, content);
+                
+                return await client.SendAsync(httpRequestMessage);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                client.Dispose();
             }
         }
 
@@ -156,6 +175,7 @@ namespace NChatGPTRev
             using (var handler = new HttpClientHandler() { UseCookies = true })
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.ConnectionClose = true;
                 foreach (var header in Headers)
                 {
                     client.DefaultRequestHeaders.Add(header.Key, header.Value);
