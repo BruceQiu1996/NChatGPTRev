@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NChatGPTRev", "NChatGPTRev\NChatGPTRev.csproj", "{155D9FF7-D57F-46DA-AD1F-208C14A46545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NChatGTPRev.Start", "NChatGTPRev.Start\NChatGTPRev.Start.csproj", "{1369F70C-E3D6-4DEB-B133-0F87211C74FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{155D9FF7-D57F-46DA-AD1F-208C14A46545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155D9FF7-D57F-46DA-AD1F-208C14A46545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155D9FF7-D57F-46DA-AD1F-208C14A46545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155D9FF7-D57F-46DA-AD1F-208C14A46545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1369F70C-E3D6-4DEB-B133-0F87211C74FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1369F70C-E3D6-4DEB-B133-0F87211C74FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1369F70C-E3D6-4DEB-B133-0F87211C74FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1369F70C-E3D6-4DEB-B133-0F87211C74FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39122D78-E10C-4B63-9E3A-1BD157701DD2}
+	EndGlobalSection
+EndGlobal
