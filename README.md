@@ -29,4 +29,4 @@ Chatbot chatbot = new Chatbot(openAIOptions);
 await chatbot.GetChatReplyAsync("xxx");
 ```
 ## 如何注册ChatGPT 代码简介，用户隔离，上下文聊天
-查看博客
+https://www.cnblogs.com/qwqwQAQ/p/16981579.html
